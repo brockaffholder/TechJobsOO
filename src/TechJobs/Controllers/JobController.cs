@@ -22,7 +22,7 @@ namespace TechJobs.Controllers
             // TODO #1 - get the Job with the given ID and pass it into the view
             Job job = jobData.Find(id);
 
-            return View();
+            return View(job);
         }
 
         public IActionResult New()
@@ -50,7 +50,7 @@ namespace TechJobs.Controllers
                 };
                 jobData.Jobs.Add(newJob);
                 int id = newJob.ID;
-                // return RedirectToAction("index", new { @id = id.ToString() } );
+                
                 return Redirect("/Job?id=" + id.ToString());
             }
 
